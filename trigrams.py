@@ -28,9 +28,8 @@ def make_trigrams(text):
         key = source_text[i] + ' ' + source_text[i + 1]
         trigrams.setdefault(key, [])
         trigrams.get(key).append(source_text[i + 2])
-        
     return trigrams
-    
+
 
 def generate_text(trigrams, words):
     """Writes the text from given trigram"""
