@@ -16,4 +16,5 @@ def test_make_trigrams():
 
 def test_generate_text():
     from trigrams import generate_text
-    generate_text({ 'a' : ['b', 'c'], 'foo' : ['bar']}, 10)
+    wordlist = generate_text({'a b' : ['b', 'c'], 'foo bear' : ['bar']}, 10)
+    assert len(wordlist) == 10

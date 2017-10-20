@@ -2,6 +2,7 @@
 import io 
 import random
 
+
 def main(filepath = './sample.txt', words = 200):
     """Core function that calls the rest of the algorithms"""
     source_text = open_source(filepath)
@@ -40,10 +41,17 @@ def generate_text(trigrams, words):
     wordlist.append(start_words[1])
 
     while(len(wordlist) < words):
-        
+        search_key = wordlist[-2] + " " + wordlist[-1]
+        v_possibilities = trigrams.get(search_key)
+        if v_possibilities == None:
+            break
 
+        wordlist.append(random.choice(v_possibilities))
 
+    output_text = " ".join(wordlist)
 
+    print(output_text)
+    return output_text
 
 
 if __name__ == '__main__':
