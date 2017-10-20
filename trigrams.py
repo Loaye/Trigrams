@@ -1,5 +1,5 @@
 """This file contains a Trigram function that will create a Trigram on any given input"""
-import io 
+import io
 import random
 import sys
 
