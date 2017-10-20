@@ -1,6 +1,7 @@
 """This file contains a Trigram function that will create a Trigram on any given input"""
 import io 
 import random
+import sys
 
 
 def main(filepath = './sample.txt', words = 200):
@@ -55,5 +56,5 @@ def generate_text(trigrams, words):
 
 
 if __name__ == '__main__':
-    """#todo FIll this in"""
-    main()
+    """Main entry point"""
+    main(sys.argv[1], int(sys.argv[2]))
