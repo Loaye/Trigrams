@@ -2,9 +2,18 @@ import pytest
 
 def test_open_source():
     from trigrams import open_source
-    assert len(open_source('./sample.txt')) = 1
+    text = open_source('./sample.txt')
+    assert type(text) is str
+    assert len(text) > 1
 
-def test_read_source():
+def test_make_trigrams():
+    from trigrams import make_trigrams
+    trigrams = make_trigrams("1 2 3 4 5 6 7 8 9")
+    assert type(trigrams) == dict
+    for key, value in trigrams.items():
+        assert type(value) is list
 
 
-def read_source():
+def test_generate_text():
+    from trigrams import generate_text
+    generate_text({ 'a' : ['b', 'c'], 'foo' : ['bar']}, 10)

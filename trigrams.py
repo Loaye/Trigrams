@@ -1,12 +1,12 @@
 """This file contains a Trigram function that will create a Trigram on any given input"""
-import io
-
-trigrams = {}
+import io 
+import random
 
 def main(filepath = './sample.txt', words = 200):
     """Core function that calls the rest of the algorithms"""
     source_text = open_source(filepath)
-    read_source(source_text)
+    trigrams = make_trigrams(source_text)
+    generate_text(trigrams, words)
 
 
 def open_source(filepath):
@@ -17,19 +17,33 @@ def open_source(filepath):
     return source_text #return the text of the file
 
 
-def read_source(text):
+def make_trigrams(text):
     """Reads the source file and builds trigrams"""
+    trigrams = {}
     source_text = text.split()
-    print(source_text)
+
     text_length = len(source_text)
     for i in range(text_length - 2):
         key = source_text[i] + ' ' + source_text[i + 1]
         trigrams.setdefault(key, [])
         trigrams.get(key).append(source_text[i + 2])
-    print(trigrams)
+        
+    return trigrams
+    
 
-def generate_text(words):
+def generate_text(trigrams, words):
     """Writes the text from given trigram"""
+    wordlist = []
+    keylist = list(trigrams.keys())
+    start_words = random.choice(keylist).split(" ")
+    wordlist.append(start_words[0])
+    wordlist.append(start_words[1])
+
+    while(len(wordlist) < words):
+        
+
+
+
 
 
 if __name__ == '__main__':
